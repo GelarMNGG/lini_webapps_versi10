@@ -1,0 +1,185 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use DB;
+
+class ServiceImageController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return redirect()->back();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $data['service_id'] = $request->id;
+        $data['service'] = DB::table('services')->where('id',$request->id)->first();
+        
+        return view('admin.service-image.create', $data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validation = $request->validate([
+            'image' => 'required|mimes:jpeg,jpg,png,pdf|max:2048',
+        ]);
+
+        //file handler
+        $fileName = null;
+        $destinationPath = public_path().'/img/services/';
+        
+        // Retrieving An Uploaded File
+        $file = $request->file('image');
+        if (!empty($file)) {
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time().'_'.$file->getClientOriginalName();
+    
+            // Moving An Uploaded File
+            $request->file('image')->move($destinationPath, $fileName);
+        }
+
+        //custom setting to support file upload
+        $data = $request->except(['_token','_method','submit']);
+
+        #$data = $request->all();
+        if (!empty($fileName)) {
+            $data['image'] = $fileName;
+        }
+
+        DB::table('services_image')->insert($data);
+
+        return redirect()->route('service.index')->with('alert-success','Data berhasil disimpan.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $data['serviceImage'] = DB::table('services_image as si')
+        ->select([
+            'si.*',
+            DB::raw('(SELECT name FROM services WHERE services.id = si.service_id) as service_name'),
+        ])
+        ->where('id',$id)->first();
+
+        return view('admin.service-image.edit', $data);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $validation = $request->validate([
+            'image' => 'required|mimes:jpeg,jpg,png,pdf|max:2048',
+        ]);
+
+        //file handler
+        $fileName = null;
+        $destinationPath = public_path().'/img/services/';
+        
+        // Retrieving An Uploaded File
+        $file = $request->file('image');
+        if (!empty($file)) {
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time().'_'.$file->getClientOriginalName();
+    
+            // Moving An Uploaded File
+            $request->file('image')->move($destinationPath, $fileName);
+
+            //delete previous image
+            $dataImage = DB::table('services_image')->select('image as image')->where('id', $id)->first();
+            $oldImage = $dataImage->image;
+            
+            if($oldImage !== 'default.png'){
+                $image_path = $destinationPath.$oldImage;
+                if(File::exists($image_path)) {
+                    File::delete($image_path);
+                }
+            }
+        }
+
+        //custom setting to support file upload
+        $data = $request->except(['_token','_method','submit']);
+
+        #$data = $request->all();
+        if (!empty($fileName)) {
+            $data['image'] = $fileName;
+        }
+
+        DB::table('services_image')->where('id', $id)->update($data);
+
+        return redirect()->route('service.index')->with('alert-success','Data image berhasil diperbarui.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //delete previous image
+        $destinationPath = public_path().'/img/services/';
+        $dataImage = DB::table('services_image')->select('image as image')->where('id', $id)->first();
+
+        $oldImage = $dataImage->image;
+
+        if($oldImage !== 'default.png'){
+            $image_path = $destinationPath.$oldImage;
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+        }
+
+        //delete image
+        DB::table('services_image')->delete($id);
+
+        return redirect()->back()->with('alert-success', 'Gambar berhasil dihapus.');
+    }
+}

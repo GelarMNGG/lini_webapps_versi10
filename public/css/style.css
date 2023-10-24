@@ -1,0 +1,320 @@
+.orange,.text-orange{color:#f47820 !important;}
+.blue,.text-blue{color:#1e2554 !important;}
+.bg-blue{background-color:#1e2554 !important;}
+.bg-orange{background-color:#f47820 !important;}
+.bg-gradiant-1{background: linear-gradient(124.41deg, #f47820 100%, #ffffff 0%);}
+.bg-white-transparant-35{background-color:rgba(248, 244, 244, 0.85);}
+.hr-orange-75{border-color: #f47820 !important; width: 75% !important;}
+.blue-separator{background-color:#1e2554 !important;}
+.h-77{height: 77px;}
+.w-75{width:75% !important;}
+.row{margin:0 !important;}
+/* padding & margin */
+.pdtb-11{padding-top:11px !important; padding-bottom: 11px !important;}
+.pdt-11{padding-top:11px !important;}
+.pdb-21{padding-bottom: 21px !important;}
+/* slider */
+.slider-title{
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform:uppercase;
+    color:#000;
+}
+.slider-text{
+    text-align: center;
+    border:1px solid #ffffff;
+    color:#ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-left:35px;
+    padding-right:35px;
+}
+.slider-text a{
+    color:#ffffff;
+}
+.carousel-caption{
+    bottom: 33% !important;
+}
+.carousel-caption img{
+    width: 157px;
+    height: auto;
+}
+.brown-line{
+    border-top:1px solid #ffffff;
+    width:77px;
+    padding-left: 5px;
+}
+.logo-clients-box{
+    width:177px;
+    height: 177px;
+    padding:5px;
+    margin:5px;
+}
+.logo-clients{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+/* navbar */
+.logo{height: 50px; width: auto;}
+.navbar{font-size: .9rem;
+}
+.navbar-collapse{
+    z-index: 1079;
+}
+.smart-scroll{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.scrolled-down{
+    transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+    transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+.dropdown-menu{
+    background-color: #1e2554;
+}
+.dropdown-item{
+    color:#f47820;
+}
+/* certificate */
+.img-certificate{
+    width:23%;
+    min-width:250px;
+    margin:2px;
+    height:auto;
+    display:inline-block;
+}
+.logo-clients-box{
+    width:177px;
+    height: 177px;
+    padding:5px;
+    margin:5px;
+}
+.logo-clients{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* services */
+.icon-service-box{
+    width:100px;
+    display:inline-block;
+    margin:3px;
+    vertical-align: top;
+    
+}
+a.icon-service-box{
+    color:#ffffff;
+    text-decoration:none;
+}
+a.icon-service-box:hover{
+    color:#f47820;
+}
+.icon-service{
+    width:77px;
+    height:77px;
+    padding:7px;
+    margin:7px;
+    border:1px solid #f1f1f1;
+    border-radius:50%;
+}
+.icon-title{
+    font-size:.7rem;
+    text-transform:uppercase;
+}
+/* others */
+.bg-image-1{
+    background-image: url("/img/bekerjalah-untuk-akhiratmu.png");
+}
+.text-box-parallax{
+    background-image: url("/img/visi-misi.jpg");
+    font-size: .9rem;
+    /* opacity:0.75; */
+
+    /* Set a specific height */
+    width:100%;
+    min-height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-pendiri{
+    max-width:500px;
+    height:auto;
+}
+/* footer */
+.footer a{
+    color:#dddddd;
+    text-decoration: none;
+}
+.footer-bw, .map{
+    width: 100%;
+}
+.map{
+    height:400px;
+}
+.footer ul{
+    list-style: none;
+    padding-inline-start: 0;
+}
+.footer-bottom-list{
+    border-top:2px solid #f47820;
+    font-size:.9rem;
+    width:100%;
+}
+/* blog */
+.blog-title{
+    position:relative;
+    bottom:45px;
+    opacity:.5;
+}
+.blog-title-2{
+    position:relative;
+    bottom:35px;
+    opacity:.5;
+}
+a.tombol-kembali{
+    text-decoration: none;
+}
+.tombol-kembali{
+    color:#f47820;
+    font-size: .9rem;
+}
+.tombol-kembali:hover{
+    color:#1e2554;
+}
+
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#notfound .notfound {
+position: absolute;
+left: 50%;
+top: 50%;
+-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+.notfound {
+max-width: 520px;
+width: 100%;
+line-height: 1.4;
+text-align: center;
+}
+
+.notfound .notfound-404 {
+position: relative;
+height: 240px;
+}
+
+.notfound .notfound-404 h1 {
+font-family: 'Montserrat', sans-serif;
+position: absolute;
+left: 50%;
+top: 50%;
+-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+font-size: 252px;
+font-weight: 900;
+margin: 0px;
+color: #262626;
+text-transform: uppercase;
+letter-spacing: -40px;
+margin-left: -20px;
+}
+
+.notfound .notfound-404 h1>span {
+text-shadow: -8px 0px 0px #fff;
+}
+
+.notfound .notfound-404 h3 {
+font-family: 'Cabin', sans-serif;
+position: relative;
+font-size: 16px;
+font-weight: 700;
+text-transform: uppercase;
+color: rgb(102, 101, 101);
+margin: 0px;
+letter-spacing: 3px;
+padding-left: 6px;
+}
+
+.notfound h2 {
+font-family: 'Cabin', sans-serif;
+font-size: 20px;
+font-weight: 400;
+text-transform: uppercase;
+color: rgb(102, 101, 101);
+margin-top: 0px;
+margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+.notfound .notfound-404 {
+    height: 200px;
+}
+.notfound .notfound-404 h1 {
+    font-size: 200px;
+}
+}
+
+@media only screen and (max-width: 480px) {
+.notfound .notfound-404 {
+    height: 162px;
+}
+.notfound .notfound-404 h1 {
+    font-size: 162px;
+    height: 150px;
+    line-height: 162px;
+}
+.notfound h2 {
+    font-size: 16px;
+}
+}
+
+@media (max-width:576px){
+    .about-box, .our-services-box, .text-box{
+        padding-left: 5px !important;
+        padding-right:5px !important;
+    }
+    .img-certificate{
+        min-width: 45% !important;
+    }
+    .logo-clients-box{
+        max-width: 30%;
+        height: auto;
+    }
+    .img-pendiri{
+        max-width: 75%;
+    }
+    .img-pendiri-box{
+        padding: 37px !important;
+    }
+    .img-pendiri-box-top{
+        margin-bottom: 7px !important;
+    }
+    .img-pendiri-box-bottom{
+        margin-top: 7px !important;
+    }
+}

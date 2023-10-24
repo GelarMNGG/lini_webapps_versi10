@@ -1,0 +1,12 @@
+.tabs-detail > li >a{color: #ffffff;}
+.tabs-detail > li .active{color: #0a0202 !important;}
+
+.card-box-reset-103 .dropify-wrapper{height: 103px !important;}
+
+@media (max-width:1029px) {
+    .left-side-menu{display:none !important;}
+    .content-reset{margin-left: 0 !important;}
+}
+@media (min-width:1029px) {
+    .d-big-none{display:none !important;}
+}
